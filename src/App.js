@@ -10,11 +10,11 @@ import NotFound from './pages/NotFound';
 import Project from './pages/Project';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: 'https://busmgtbackend.onrender.com',
   cache: new InMemoryCache(),
 });
 const project = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: 'https://busmgtbackend.onrender.com',
   cache: new InMemoryCache(),
 });
 
