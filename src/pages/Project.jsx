@@ -21,8 +21,8 @@ const Project = () => {
     <div>
       {!loading && !error && (
         <>
-          <div className='mx-auto w-75 card p-5'>
-            <Link to='/' className='btn btn-light btn-sm w-25 ms-auto d-inline'>
+          <div className='mx-auto w-sm-75 card p-5'>
+            <Link to='/' className='btn btn-light btn-sm w-sm-25 ms-auto d-inline'>
               Back
             </Link>
             <h1>{data.Project.name}</h1>
