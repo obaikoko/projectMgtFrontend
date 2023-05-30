@@ -1,6 +1,8 @@
-import {FaEnvelope, FaPhone, FaIdBadge} from'react-icons/fa'
+import { FaEnvelope, FaPhone, FaIdBadge } from 'react-icons/fa';
+import DeleteProjectBtn from './DeleteProjectBtn';
+import UpdateProjectBtn from './UpdateProjectBtn';
 
-const ClientInfo = ({client}) => {
+const ClientInfo = ({ client, project }) => {
   return (
     <>
       <h5 className='mt-5'>Client Information</h5>
@@ -18,8 +20,12 @@ const ClientInfo = ({client}) => {
           {client.phone}
         </li>
       </ul>
+      <div className='d-flex'>
+        <UpdateProjectBtn project={project} />
+        <DeleteProjectBtn project={project} />
+      </div>
     </>
   );
-}
+};
 
-export default ClientInfo
+export default ClientInfo;

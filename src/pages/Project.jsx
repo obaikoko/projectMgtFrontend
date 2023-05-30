@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { Link, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import ClientInfo from '../components/ClientInfo';
-import { FaTrash } from 'react-icons/fa';
+import DeleteProjectBtn from '../components/DeleteProjectBtn';
 
 const Project = () => {
   const { id } = useParams();
@@ -25,12 +25,18 @@ const Project = () => {
             <Link to='/' className='btn btn-light btn-sm w-25 ms-auto d-inline'>
               Back
             </Link>
-            <button className='btn btn-danger btn-sm w-25 ms-auto d-inline'><FaTrash/></button>
             <h1>{data.Project.name}</h1>
             <p>{data.Project.description}</p>
             <h5 className='mt-3'>Project Status</h5>
             <p className='lead'>{data.Project.status}</p>
-            <ClientInfo client={data.Project.client}/>
+            {data && data.Project.client ? (
+              <ClientInfo client={data.Project.client} project={data.Project} />
+            ) : (
+              <div>
+                <p className='lead'>No Client Info</p>
+                <DeleteProjectBtn project={data.project} />
+              </div>
+            )}
           </div>
         </>
       )}

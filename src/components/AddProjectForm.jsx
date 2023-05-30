@@ -3,15 +3,15 @@ import { useMutation, useQuery } from '@apollo/client';
 import { ADD_PROJECT } from '../mutations/projectMutation';
 import { GET_PROJECTS } from '../queries/projectQueries';
 import { GET_CLIENTS } from '../queries/clientQueries';
+import { toast } from 'react-toastify';
 
 import { useState } from 'react';
-import { toast } from 'react-toastify';
 
 const AddProjectForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    status: 'New',
+    status: 'new',
     clientId: '',
   });
   const { name, description, status, clientId } = formData;
@@ -35,7 +35,7 @@ const AddProjectForm = () => {
       return alert('Please add all field');
     }
     addProject(name, description, status, clientId);
-    // toast.success(`${name} created successfully`);
+    toast.success(`${name} created successfully`);
 
     setFormData({ name: '', description: '', status: 'New', clientId: '' });
   };
@@ -135,13 +135,11 @@ const AddProjectForm = () => {
                         value={clientId}
                         onChange={handleInputChange}
                       >
-                        <option value=''>Select Client</option>
+                        <option>Select Client</option>
                         {data.Clients.map((client) => (
-                          <>
-                            <option key={client.id} value={client.id}>
-                              {client.name}
-                            </option>
-                          </>
+                          <option value={client.id} key={client.id}>
+                            {client.name}
+                          </option>
                         ))}
                       </select>
                     </div>

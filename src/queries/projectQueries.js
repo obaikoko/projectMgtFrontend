@@ -17,6 +17,7 @@ const GET_PROJECT = gql`
       name
       description
       status
+      id
       client{
         name
         email
