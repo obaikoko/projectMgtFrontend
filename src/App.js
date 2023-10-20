@@ -4,7 +4,6 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import Homepage from './pages/Homepage';
 import NotFound from './pages/NotFound';
 import Project from './pages/Project';

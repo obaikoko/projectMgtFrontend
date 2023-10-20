@@ -7,6 +7,7 @@ const GET_PROJECTS = gql`
       name
       description
       status
+      url
     }
   }
 `;
@@ -18,6 +19,7 @@ const GET_PROJECT = gql`
       description
       status
       id
+      url
       client{
         name
         email

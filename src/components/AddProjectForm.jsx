@@ -11,12 +11,13 @@ const AddProjectForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
+    url: '',
     status: 'new',
     clientId: '',
   });
-  const { name, description, status, clientId } = formData;
+  const { name, description, url, status, clientId } = formData;
   const [addProject] = useMutation(ADD_PROJECT, {
-    variables: { name, description, status, clientId },
+    variables: { name, description, url, status, clientId },
     refetchQueries: [{ query: GET_PROJECTS }],
   });
 
@@ -37,7 +38,7 @@ const AddProjectForm = () => {
     addProject(name, description, status, clientId);
     toast.success(`${name} created successfully`);
 
-    setFormData({ name: '', description: '', status: 'New', clientId: '' });
+    setFormData({ name: '', description: '', url: '', status: 'New', clientId: '' });
   };
   if (loading) {
     return null;
@@ -105,6 +106,19 @@ const AddProjectForm = () => {
                         name='description'
                         id='description'
                         value={description}
+                        onChange={handleInputChange}
+                        className='form-control'
+                      />
+                    </div>
+                    <div className='mb-3'>
+                      <label htmlFor='url' className='form-label'>
+                        Url
+                      </label>
+                      <input
+                        type='text'
+                        name='url'
+                        id='url'
+                        value={url}
                         onChange={handleInputChange}
                         className='form-control'
                       />

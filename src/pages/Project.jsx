@@ -11,6 +11,7 @@ const Project = () => {
     variables: { id },
   });
 
+  console.log(data);
   if (loading) {
     return <Spinner />;
   }
@@ -29,7 +30,7 @@ const Project = () => {
             <p>{data.Project.description}</p>
             <h5 className='mt-3'>Project Status</h5>
             <p className='lead'>{data.Project.status}</p>
-            <Link>{data.Project.url}</Link>
+            <Link to={data.Project.url}>{data.Project.url}</Link>
             {data && data.Project.client ? (
               <ClientInfo client={data.Project.client} project={data.Project} />
             ) : (
